@@ -5,22 +5,15 @@
     <groupId>com.edurekademo.tutorial</groupId>
     <artifactId>addressbook_main</artifactId>
     <packaging>war</packaging>
-    <version>2.0.4-SNAPSHOT</version>
+    <version>2.0.4</version>
     <name>Vaadin Addressbook example</name>
 
-		<distributionManagement>
-		<snapshotRepository>
-			<id>${env.ART_ID}</id>
-			<name>${env.ART_NAME}</name>
-			<url>${env.ART_URL}</url>
-		</snapshotRepository>
-		<repository>
-		<id>${env.REL_ART_ID}</id>
-			<name>${env.REL_ART_NAME}</name>
-			<url>${env.REL_ART_URL}</url>
-		</repository>
-
-	</distributionManagement>
+<distributionManagement>
+  <repository>
+    <id>dev</id>
+    <url>http://52.172.202.12:8080/nexus/content/repositories/dev</url>
+  </repository>
+</distributionManagement>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
