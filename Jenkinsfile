@@ -1,30 +1,55 @@
 node {
    def mvnHome
-   def version 
-   stage('Preparation') {
-      git 'https://github.com/SeshagiriSriram/addressbook.git'
+   def version
+   stage('Preparation') { // for display purposes
+      // Get some code from a GitHub repository
+      git 'https://github.com/sachingupta771/final.git'
+      // Get the Maven tool.
+      // ** NOTE: This 'M3' Maven tool must be configured
+      // **       in the global configuration.
       mvnHome = tool 'LOCAL_MAVEN'
-	  version = '2.3.5' 
+      version='2.3.5'
    }
-   stage('Build') {
-        withMaven(
-        maven: 'LOCAL_MAVEN', // Maven installation declared in the Jenkins "Global Tool Configuration"
-        mavenSettingsConfig: 'settings.xml', // Maven settings.xml file defined with the Jenkins Config File Provider Plugin
-        mavenLocalRepo: 'd:/repos') {
-
+   stage('UNITTEST') {
+      // Run the maven build
       if (isUnix()) {
          sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore test -Pfunctional-test -DSkipUTs=true -DskipTests=true"
       } else {
-         bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore test -Pfunctional-test -DSkipUTs=true -DskipTests=true/)
+         bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore clean package/)
       }
-    } // withMaven will discover the generated Maven artifacts, JUnit reports and FindBugs reports
-    
+   }
+     stage('Unti test report') {
+      junit '**/target/surefire-reports/TEST-*.xml'
+      
+   }
+
+   stage('PMD') {
+      // Run the maven build
+      if (isUnix()) {
+         sh "'${mvnHome}/bin/mvn' pmd:pmd"
+      } else {
+         bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore clean package/)
+      }
+   }
+   stage('PMD test report') {
+      pmd '**/target/site/TEST-*.xml'
+      
+   }
+
+   stage('Cobertura') {
+      // Run the maven build
+      if (isUnix()) {
+         sh "'${mvnHome}/bin/mvn' cobertura:cobertura"
+      } else {
+         bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore clean package/)
+      }
+   }
+   stage('Publish cobertura Reports') {
+      publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'addressbook_main/target/site/cobertura/', reportFiles: 'index.html', reportName: 'HTML Report'])
 
    }
-   stage('Results') {
-      junit '**/target/surefire-reports/TEST-*.xml'
-      archive 'target/*.jar'
-   }
-     stage('DeployToServer') {
-	 } 
-} 
+
+ 
+  
+   
+}
