@@ -31,10 +31,7 @@ node {
          bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore clean package/)
       }
    }
-   stage('PMD test report') {
-      pmd '**/target/site/TEST-*.xml'
-      
-   }
+  
 
    stage('Cobertura') {
       // Run the maven build
