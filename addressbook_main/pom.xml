@@ -10,8 +10,8 @@
 
 <distributionManagement>
   <repository>
-    <id>dev</id>
-    <url>http://52.172.207.150:8080/nexus/content/repositories/dev</url>
+    <id>repo</id>
+    <url>http://40.127.86.139:8080/nexus/content/repositories/repo</url>
   </repository>
 </distributionManagement>
 
