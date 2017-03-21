@@ -20,11 +20,11 @@
         <thucydides.version>0.9.268</thucydides.version>
         <jelastic.context>addressbook</jelastic.context>
     </properties>
-
+	
 <distributionManagement>
   <repository>
-    <id>dev1</id>
-    <url>http://52.172.203.249:8080/nexus/content/repositories/dev1</url>
+    <id>repo</id>
+    <url>http://40.127.90.201:8080/nexus/content/repositories/repo</url>
   </repository>
 </distributionManagement>
 	
