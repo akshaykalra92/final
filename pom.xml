@@ -28,6 +28,14 @@
   </repository>
 </distributionManagement>
 	
+	
+	 <scm>
+        <connection>scm:git:git@github.com:https://github.com/sachingupta771/final.git</connection>
+        <developerConnection>scm:git:git@github.com:https://github.com/sachingupta771/final.git</developerConnection>
+        <url>scm:git:git@github.com:https://github.com/sachingupta771/final.git</url>
+      <!-- <tag>1.0.5</tag> --> 
+  </scm>
+	
     <pluginRepositories>
         <pluginRepository>
             <id>vaadin-snapshots</id>
