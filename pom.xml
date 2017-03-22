@@ -4,7 +4,7 @@
     <groupId>com.edurekademo.tutorial</groupId>
     <artifactId>addressbook</artifactId>
 
-    <version>7.0</version>
+    <version>1.1.1-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Address Book Edureka Demo</name>
     <url>https://github.com/SeshagiriSriram/addressbook</url>
@@ -26,6 +26,10 @@
     <id>repo</id>
     <url>http://40.127.66.195:8080/nexus/content/repositories/repo</url>
   </repository>
+<snapshotRepository>
+    <id>snapshots</id>
+    <url>http://40.127.66.195:8080/nexus/content/repositories/snapshots</url>
+  </snapshotRepository>
 </distributionManagement>
 	
 	
