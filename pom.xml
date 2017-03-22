@@ -24,7 +24,7 @@
 <distributionManagement>
   <repository>
     <id>repo</id>
-    <url>http://40.127.90.201:8080/nexus/content/repositories/repo</url>
+    <url>http://40.127.66.195:8080/nexus/content/repositories/repo</url>
   </repository>
 </distributionManagement>
 	
