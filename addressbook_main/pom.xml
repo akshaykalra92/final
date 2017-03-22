@@ -13,6 +13,10 @@
     <id>repo</id>
     <url>http://40.127.66.195:8080/nexus/content/repositories/repo</url>
   </repository>
+	<snapshotRepository>
+    <id>snapshots</id>
+    <url>http://40.127.66.195:8080/nexus/content/repositories/snapshots</url>
+  </snapshotRepository>
 </distributionManagement>
 	
 
